@@ -11,7 +11,7 @@ import { getFirestore, doc, setDoc } from "firebase/firestore";
 import './index.css'
 
 const firebaseConfig = {
-  apiKey: "process.env.API_KEY",
+  apiKey: process.env.API_KEY,
   authDomain: "completion-tracker.firebaseapp.com",
   projectId: "completion-tracker",
   storageBucket: "completion-tracker.appspot.com",

@@ -1,0 +1,30 @@
+body{
+    align-items: center;
+    
+}
+body,
+#sign-form,
+#sign-with-google{
+    display: flex;
+    
+    
+}
+body,
+#sign-form{
+    
+    flex-direction: column;
+    
+}
+#sign-with-google{
+flex-direction: row;
+}
+#sign-with-google{
+    align-items: center;
+}
+#sign-with-google{
+gap:0.5em;
+}
+.google-logo-btn{
+    width:1.2em;
+}
+

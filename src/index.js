@@ -12,7 +12,7 @@ import './index.css'
 
 const firebaseConfig = {
   apiKey: process.env.API_KEY,
-  authDomain: "completion-tracker.firebaseapp.com",
+  authDomain: process.env.AUTH_DOMAIN,
   projectId: "completion-tracker",
   storageBucket: "completion-tracker.appspot.com",
    

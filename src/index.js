@@ -110,8 +110,9 @@ const authSignWithGoogle = ()=>{
     const credential = GoogleAuthProvider.credentialFromResult(result)//This extracts the OuthCredential from the userCredential Object
     const token = credential.accessToken
     const user = result.user
-    loggedInView()
-  }) .catch((error) => {
+    console.log(user)
+   // loggedInView()
+  }).then(loggedInView) .catch((error) => {
     
       console.error(error.message);
     

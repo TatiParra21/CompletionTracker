@@ -20,9 +20,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
-provider.addScope('profile');
-provider.addScope('email');
 
+console.log(provider)
 const emailInput = document.getElementById("email-address")
 const passwordInput = document.getElementById("password")
 const signInSection = document.getElementById("sign-in-sec")
@@ -105,15 +104,18 @@ const createUserAccount = ()=> {
     }
   })
 const authSignWithGoogle = ()=>{
+  console.log("API Key:", process.env.API_KEY);
+console.log("Auth Domain:", process.env.AUTH_DOMAIN);
   signInWithPopup(auth,provider)
   .then((result)=>{//result returns a userCredentialObject
+    console.log(result)
     const credential = GoogleAuthProvider.credentialFromResult(result)//This extracts the OuthCredential from the userCredential Object
     const token = credential.accessToken
     const user = result.user
     console.log(user)
-   // loggedInView()
-  }).then(loggedInView) .catch((error) => {
-    
+   loggedInView()
+  }).catch((error) => {
+  
       console.error(error.message);
     
   });

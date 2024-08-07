@@ -1,5 +1,6 @@
 const path = require("path")
 const Dotenv = require("dotenv-webpack")
+const TerserPlugin = require('terser-webpack-plugin')
 
 
 module.exports ={
@@ -27,6 +28,14 @@ module.exports ={
    plugins:[
     new Dotenv()
    ],
+   optimization: {
+    minimize: true, // Enable minimization
+    minimizer: [
+        new TerserPlugin({
+            parallel: true, // Enable parallel processing
+        }),
+    ],
+},
     
     watch:true
 }

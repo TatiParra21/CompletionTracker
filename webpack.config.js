@@ -11,7 +11,8 @@ module.exports ={
         filename:'bundle.js'
     },
     module:{
-        rules:[ {
+        rules:[ 
+            {
                 test:/\.css$/,
                 use:['style-loader', 'css-loader']
                 },
@@ -22,6 +23,16 @@ module.exports ={
                         filename: 'images/[name][ext]'
                     }
 
+                },
+                {
+                    test:/\.js$/,
+                    exclude:/node_modules/,
+                    use:{
+                        loader:'babel-loader',
+                        options: {
+                            presets: ['@babel/preset-env']
+                        }
+                    }
                 }
             ]
     },

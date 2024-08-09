@@ -52,5 +52,5 @@ module.exports ={
     ],
 },
     
-    watch:true
+    watch:false
 }

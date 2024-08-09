@@ -2,7 +2,7 @@ const path = require("path")
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require("dotenv-webpack")
 const TerserPlugin = require('terser-webpack-plugin')
-
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports ={
     mode: 'production',
@@ -39,6 +39,7 @@ module.exports ={
     },
    plugins:[
     new Dotenv(),
+    new BundleAnalyzerPlugin(),
     new MiniCssExtractPlugin({
         filename:'styles.css'
     }),

@@ -1,6 +1,7 @@
-#sign-in-sec, #log-in-sec{
-    display:none;
-}
+/*!*****************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/index.css ***!
+  \*****************************************************************/
+
 body{
     align-items: center;
     background-color: blue;
@@ -31,4 +32,5 @@ gap:0.5em;
 .google-logo-btn{
     width:1.2em;
 }
+
 

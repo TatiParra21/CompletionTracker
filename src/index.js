@@ -1,3 +1,4 @@
+//import './index.css'
 import { initializeApp } from "firebase/app";
 import { getAuth, 
 createUserWithEmailAndPassword,
@@ -8,7 +9,7 @@ GoogleAuthProvider,
 signInWithPopup} from "firebase/auth";
 import gLogo from './images/free-goo.png'
 import { getFirestore, doc, setDoc } from "firebase/firestore"; 
-import './index.css'
+
 
 const firebaseConfig = {
   apiKey: process.env.API_KEY,
@@ -34,20 +35,23 @@ const showSec = (sec) =>{
     sec.style.display = "none"
   
   }
-const start = () =>{
-  hideSec(loggedInSection)
+
   
-  console.log("ehl")
-}
+  
+
 
 const loggedInView =()=>{
-  showSec(loggedInSection)
   hideSec(signInSection)
+  showSec(loggedInSection)
+  document.body.classList.remove('hidden')
+  
 }
 
 const loggedOutView = ()=>{
-  showSec(signInSection)
   hideSec(loggedInSection)
+  showSec(signInSection)
+  document.body.classList.remove('hidden')
+  
 }
 const resetInfo= () =>{
   emailInput.value=""
@@ -97,13 +101,18 @@ const createUserAccount = ()=> {
   }
 
   onAuthStateChanged(auth,(user)=>{
+    
+    console.log("test")
     if(user){
       console.log("lgged in")
       loggedInView()
     }else{
       loggedOutView()
+      console.log("logged out")
     }
-  })
+})
+
+ 
 const authSignWithGoogle = ()=>{
   
   signInWithPopup(auth,provider)
@@ -123,9 +132,21 @@ const authSignWithGoogle = ()=>{
   });
 }
 
-  
-
-  start()
+  /*
+window.addEventListener("load",()=>{
+  onAuthStateChanged(auth,(user)=>{
+    
+    console.log("test")
+    if(user){
+      console.log("lgged in")
+      loggedInView()
+    }else{
+      console.log("logged out")
+      loggedOutView()
+    }
+    })
+ })
+  */
   document.addEventListener("click",(e)=>{
     e.preventDefault()
     if(e.target.id == "log-in-btn"){
@@ -143,7 +164,7 @@ const authSignWithGoogle = ()=>{
 
 
 
-console.log("heo")
+
 // console.log(app)
 // console.log(auth)
 

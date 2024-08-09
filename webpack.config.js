@@ -1,10 +1,11 @@
 const path = require("path")
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require("dotenv-webpack")
 const TerserPlugin = require('terser-webpack-plugin')
 
 
 module.exports ={
-    mode: 'production',
+    mode: 'development',
     entry:'./src/index.js',
     output: {
         path: path.resolve(__dirname,'dist'),
@@ -14,7 +15,7 @@ module.exports ={
         rules:[ 
             {
                 test:/\.css$/,
-                use:['style-loader', 'css-loader']
+                use:[MiniCssExtractPlugin.loader, 'css-loader']
                 },
                 {
                     test:/\.(png|jpg|jpeg|gif|svg)$/,
@@ -37,7 +38,10 @@ module.exports ={
             ]
     },
    plugins:[
-    new Dotenv()
+    new Dotenv(),
+    new MiniCssExtractPlugin({
+        filename:'styles.css'
+    }),
    ],
    optimization: {
     minimize: true, // Enable minimization

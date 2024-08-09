@@ -6,11 +6,11 @@
   [[plugins]]
     package = "@netlify/plugin-cache-nextjs"
 
-[context.production]
-  environment = { NODE_ENV = "production" }
+[context.production.environment]
+  NODE_ENV = "production"
 
-[context.deploy-preview]
-  environment = { NODE_ENV = "development" }
+[context.deploy-preview.environment]
+  NODE_ENV = "development"
 
 [build.environment]
   NODE_VERSION = "14"

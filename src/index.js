@@ -132,21 +132,7 @@ const authSignWithGoogle = ()=>{
   });
 }
 
-  /*
-window.addEventListener("load",()=>{
-  onAuthStateChanged(auth,(user)=>{
-    
-    console.log("test")
-    if(user){
-      console.log("lgged in")
-      loggedInView()
-    }else{
-      console.log("logged out")
-      loggedOutView()
-    }
-    })
- })
-  */
+
   document.addEventListener("click",(e)=>{
     e.preventDefault()
     if(e.target.id == "log-in-btn"){
